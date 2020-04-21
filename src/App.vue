@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import login from "@/components/index";
+    import login from "@/components/indexPage";
 
     export default {
         name: 'App',

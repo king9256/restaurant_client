@@ -4,22 +4,22 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-                    <a class="btn btn-outline-success border-0" style="color: aliceblue;" href="http://localhost:8081/"
-                       role="button">首页</a>
+                    <a class="btn btn-outline-success border-0" style="color: aliceblue;"
+                       role="button" v-on:click="headerNav">首页</a>
                     <a class="btn btn-outline-success border-0" style="color: aliceblue" href="#"
-                       role="button">美食做法</a>
+                       role="button" v-on:click="headerNav">美食做法</a>
                     <a class="btn btn-outline-success  border-0" style="color: aliceblue" href="#"
-                       role="button">美文美食</a>
+                       role="button" v-on:click="headerNav">美文美食</a>
                     <a class="btn btn-outline-success  border-0" style="color: aliceblue" href="#"
-                       role="button">西南地区美食小吃</a>
+                       role="button" v-on:click="headerNav">西南地区美食小吃</a>
                     <a class="btn btn-outline-success  border-0" style="color: aliceblue" href="#"
-                       role="button">东北地区美食小吃</a>
+                       role="button" v-on:click="headerNav">东北地区美食小吃</a>
                     <a class="btn btn-outline-success  border-0" style="color: aliceblue" href="#"
-                       role="button">西北地区美食小吃</a>
+                       role="button" v-on:click="headerNav">西北地区美食小吃</a>
                     <a class="btn btn-outline-success  border-0" style="color: aliceblue" href="#"
-                       role="button">东南地区美食小吃</a>
+                       role="button" v-on:click="headerNav">东南地区美食小吃</a>
                     <a class="btn btn-outline-success  border-0" style="color: aliceblue" href="#"
-                       role="button">特产介绍</a>
+                       role="button" v-on:click="headerNav">特产介绍</a>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
@@ -30,10 +30,10 @@
                                     更多
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">敬请期待</a>
-                                    <a class="dropdown-item" href="#">敬请期待</a>
+                                    <a class="dropdown-item" href="#">Share特产</a>
+                                    <a class="dropdown-item" href="#">Share美食做法</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">敬请期待</a>
+                                    <a class="dropdown-item" href="#">发布美食美文</a>
                                 </div>
                             </li>
                         </ul>
@@ -50,6 +50,7 @@
         <div class="row">
             <!--            左边-->
             <div class="col-md-8">
+
                 <div class="row">
                     <div class="col-md-12">
                         <!--                轮播图-->
@@ -87,17 +88,18 @@
                     </div>
                 </div>
 
+                <!--                主体内容-->
+                <div class="row" v-bind="indexMode" v-for="item in indexMode" :key="item">
 
-                <div class="row ">
-
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <img class="card-img-top" src="../assets/one.jpg" alt="">
+                            <img class="card-img-top" src="../assets/one.jpg" alt="" v-bind:id="item.id"
+                                 v-on:click="detail"/>
                             <div class="card-body">
-                                <h6 class="card-title">陕西美食小吃之临潼火晶柿子</h6>
+                                <router-link to='index.html'><button>点我到第二个页面</button></router-link>
+                                <h6 class="card-title">{{item.title}}</h6>
                                 <p class="card-text" style="font-size: 13px">
-                                    临潼火晶柿子是陕西的特产，是柿子中的佼佼者。火晶柿子属柿树科(Ebeuaceae)、
-                                    柿属，落叶乔木，高可达15米。果形扁圆，面为朱红色，细润而光滑，色泽艳丽，皮薄无核...
+                                    {{item.introduction}}
                                 </p>
                                 <label> 2020-04-19 17:01 <i class="fas fa-heart float-right"></i></label>
                             </div>
@@ -105,12 +107,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <img class="card-img-top" src="../assets/one.jpg" alt="">
+                            <img class="card-img-top" src="../assets/one.jpg" alt="" v-bind:id="item.id"
+                                 v-on:click="detail"/>
                             <div class="card-body">
-                                <h6 class="card-title">陕西美食小吃之临潼火晶柿子</h6>
+                                <h6 class="card-title">{{item.title}}</h6>
                                 <p class="card-text" style="font-size: 13px">
-                                    临潼火晶柿子是陕西的特产，是柿子中的佼佼者。火晶柿子属柿树科(Ebeuaceae)、
-                                    柿属，落叶乔木，高可达15米。果形扁圆，面为朱红色，细润而光滑，色泽艳丽，皮薄无核...
+                                    {{item.introduction}}
                                 </p>
                                 <label> 2020-04-19 17:01 <i class="fas fa-heart float-right"></i></label>
                             </div>
@@ -118,12 +120,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <img class="card-img-top" src="../assets/one.jpg" alt="">
+                            <img class="card-img-top" src="../assets/one.jpg" alt="" v-bind:id="item.id"
+                                 v-on:click="detail"/>
                             <div class="card-body">
-                                <h6 class="card-title">陕西美食小吃之临潼火晶柿子</h6>
+                                <h6 class="card-title">{{item.title}}</h6>
                                 <p class="card-text" style="font-size: 13px">
-                                    临潼火晶柿子是陕西的特产，是柿子中的佼佼者。火晶柿子属柿树科(Ebeuaceae)、
-                                    柿属，落叶乔木，高可达15米。果形扁圆，面为朱红色，细润而光滑，色泽艳丽，皮薄无核...
+                                    {{item.introduction}}
                                 </p>
                                 <label> 2020-04-19 17:01 <i class="fas fa-heart float-right"></i></label>
                             </div>
@@ -131,12 +133,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <img class="card-img-top" src="../assets/one.jpg" alt="">
+                            <img class="card-img-top" src="../assets/one.jpg" alt="" v-bind:id="item.id"
+                                 v-on:click="detail"/>
                             <div class="card-body">
-                                <h6 class="card-title">陕西美食小吃之临潼火晶柿子</h6>
+                                <h6 class="card-title">{{item.title}}</h6>
                                 <p class="card-text" style="font-size: 13px">
-                                    临潼火晶柿子是陕西的特产，是柿子中的佼佼者。火晶柿子属柿树科(Ebeuaceae)、
-                                    柿属，落叶乔木，高可达15米。果形扁圆，面为朱红色，细润而光滑，色泽艳丽，皮薄无核...
+                                    {{item.introduction}}
                                 </p>
                                 <label> 2020-04-19 17:01 <i class="fas fa-heart float-right"></i></label>
                             </div>
@@ -144,12 +146,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <img class="card-img-top" src="../assets/one.jpg" alt="">
+                            <img class="card-img-top" src="../assets/one.jpg" alt="" v-bind:id="item.id"
+                                 v-on:click="detail"/>
                             <div class="card-body">
-                                <h6 class="card-title">陕西美食小吃之临潼火晶柿子</h6>
+                                <h6 class="card-title">{{item.title}}</h6>
                                 <p class="card-text" style="font-size: 13px">
-                                    临潼火晶柿子是陕西的特产，是柿子中的佼佼者。火晶柿子属柿树科(Ebeuaceae)、
-                                    柿属，落叶乔木，高可达15米。果形扁圆，面为朱红色，细润而光滑，色泽艳丽，皮薄无核...
+                                    {{item.introduction}}
                                 </p>
                                 <label> 2020-04-19 17:01 <i class="fas fa-heart float-right"></i></label>
                             </div>
@@ -157,20 +159,18 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <img class="card-img-top" src="../assets/one.jpg" alt="">
+                            <img class="card-img-top" src="../assets/one.jpg" alt="" v-bind:id="item.id"
+                                 v-on:click="detail"/>
                             <div class="card-body">
-                                <h6 class="card-title">陕西美食小吃之临潼火晶柿子</h6>
+                                <h6 class="card-title">{{item.title}}</h6>
                                 <p class="card-text" style="font-size: 13px">
-                                    临潼火晶柿子是陕西的特产，是柿子中的佼佼者。火晶柿子属柿树科(Ebeuaceae)、
-                                    柿属，落叶乔木，高可达15米。果形扁圆，面为朱红色，细润而光滑，色泽艳丽，皮薄无核...
+                                    {{item.introduction}}
                                 </p>
                                 <label> 2020-04-19 17:01 <i class="fas fa-heart float-right"></i></label>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
 
                 <!-- 左边-->
             </div>
@@ -182,18 +182,18 @@
                     <li class="list-group active">
                         <div class="btn-group " id="mygroup1" role="group" aria-label="Basic example">
                             <a class="btn btn-outline-success border-0 wenzhanglist"
-                               href="#" role="button" id="zuixin" @mouseover="test1">最新文章</a>
+                               href="#" role="button" id="zuixin" @mouseover="RightNav">最新文章</a>
                             <a class="btn btn-outline-success border-0 wenzhanglist"
-                               href="#" role="button" id="repin" @mouseover="test1">热评文章</a>
+                               href="#" role="button" id="repin" @mouseover="RightNav">热评文章</a>
                             <a class="btn btn-outline-success border-0 wenzhanglist"
-                               href="#" role="button" id="suiji" @mouseover="test1">随机文章</a>
+                               href="#" role="button" id="suiji" @mouseover="RightNav">随机文章</a>
                         </div>
                     </li>
 
                     <li class="list-group" id="zuixinli">
-                        <a href="#" class="list-group-item list-group-item-action">1111111</a>
-                        <a href="#" class="list-group-item list-group-item-action">美食做法</a>
-                        <a href="#" class="list-group-item list-group-item-action">美食做法</a>
+                        <a href="#" class="list-group-item list-group-item-action">陕西美食小吃之临潼火晶柿子</a>
+                        <a href="#" class="list-group-item list-group-item-action">陕西特产之延川红枣</a>
+                        <a href="#" class="list-group-item list-group-item-action">陕西特产之洛南核桃</a>
                     </li>
 
                     <li class="list-group" STYLE="display: none" id="repinli">
@@ -255,8 +255,27 @@
 
                 <!--右边-->
             </div>
-
             <!-- 主体-->
+        </div>
+        <div class="row" style="margin-right: auto;margin-left: auto;">
+            <div class="col-md-12">
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+            </div>
         </div>
 
     </div>
@@ -264,16 +283,19 @@
 </template>
 <script>
 
-    // eslint-disable-next-line no-unused-vars
     import $ from 'jquery'
+    import router from "@/router/router";
 
     export default {
+
         data() {
             return {
+                router,
                 form: {
                     name: '',
                     password: ''
-                }
+                },
+                indexMode: []
             }
         },
         methods:
@@ -282,14 +304,14 @@
                     this.$http.post("http://localhost:8081/admin/login", {
                         "name": this.name,
                         "password": this.password
-                    }, {}).then(function (res) {
+                    }).then(function (res) {
                         var rec = res.data
                         console.log(rec['code'])
                     }).catch(function (err) {
                         console.log(err)
                     })
                 },
-                test1(e) {
+                RightNav(e) {
                     var tab = $(e.target).html()
                     if (tab === "最新文章") {
                         $("#zuixinli").show()
@@ -303,11 +325,40 @@
                         $("#suijili").show()
                         $("#repinli").hide()
                         $("#zuixinli").hide()
-
                     }
-
+                },
+                headerNav(e) {
+                    var tab = $(e.target).html()
+                    this.$http.get("http://localhost:8081/user/nav?" + "which=" + tab)
+                        .then(data => {
+                            this.indexMode = data['data']['data']['records'];
+                            console.log(this.indexMode)
+                        }).catch(function (err) {
+                        console.log(err)
+                    })
+                },
+                detail(e) {
+                    var taid = $(e.target).attr("id");
+                    this.router.push({
+                        path: "./details",
+                        name: "details",
+                        params: {
+                            "detailModel": taid
+                        }
+                    })
+                    console.log(taid)
+                    // alert(taid)
                 }
-            }
+            },
+        mounted: function () {
+            this.$http.get("http://localhost:8081/user/nav?which=首页")
+                .then(data => {
+                    this.indexMode = data['data']['data']['records'];
+                    console.log(this.indexMode)
+                }).catch(function (err) {
+                console.log(err)
+            })
+        }
     }
 
 
